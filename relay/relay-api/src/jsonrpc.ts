@@ -1,6 +1,6 @@
 import { RelayJsonRpc } from "./types";
 
-export const RELAY_JSONRPC: { [protocol: string]: RelayJsonRpc.Methods } = {
+export const RELAY_JSONRPC: { [protocol: string]: RelayJsonRpc.Methods } = Object.assign(Object.create(null), {
   waku: {
     publish: "waku_publish",
     batchPublish: "waku_batchPublish",
@@ -28,4 +28,4 @@ export const RELAY_JSONRPC: { [protocol: string]: RelayJsonRpc.Methods } = {
     unsubscribe: "iridium_unsubscribe",
     batchUnsubscribe: "iridium_batchUnsubscribe",
   },
-};
+});
