@@ -37,10 +37,5 @@ export async function signJWT(
 }
 
 export async function verifyJWT(jwt: string) {
-  const { header, payload, data, signature } = decodeJWT(jwt);
-  if (header.alg !== JWT_IRIDIUM_ALG || header.typ !== JWT_IRIDIUM_TYP) {
-    throw new Error("JWT must use EdDSA algorithm");
-  }
-  const publicKey = decodeIss(payload.iss);
-  return nacl.sign.detached.verify(data, signature, publicKey);
+  throw new Error("verifyJWT in exodus fork");
 }
