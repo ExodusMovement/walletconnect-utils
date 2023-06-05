@@ -7,11 +7,12 @@ export class KeyValueStorage implements IKeyValueStorage {
   private readonly localStorage: Storage = localStorage;
 
   public async getKeys(): Promise<string[]> {
-    return Object.keys(this.localStorage);
+    return Array.from(this.localStorage.mapping.keys());
   }
 
   public async getEntries<T = any>(): Promise<[string, T][]> {
-    return Object.entries(this.localStorage).map(parseEntry);
+    const mapping: Map<string, string | null> = this.localStorage.mapping;
+    return Array.from(mapping.entries()).map(parseEntry);
   }
 
   public async getItem<T = any>(key: string): Promise<T | undefined> {

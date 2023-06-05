@@ -9,39 +9,45 @@
 
   let db;
 
-  function LocalStorage() {}
+  function LocalStorage() {
+  }
   db = LocalStorage;
 
   db.prototype.getItem = function(key) {
-    if (this.hasOwnProperty(key)) {
-      return String(this[key]);
+    if (this.mapping.has(key)) {
+      return String(this.mapping.get(key));
     }
     return null;
   };
 
   db.prototype.setItem = function(key, val) {
-    this[key] = String(val);
+    this.mapping.set(key, String(val));
   };
 
   db.prototype.removeItem = function(key) {
-    delete this[key];
+    this.mapping.delete(key);
   };
 
   db.prototype.clear = function() {
-    const self = this;
-    Object.keys(self).forEach(function(key) {
-      self[key] = undefined;
-      delete self[key];
-    });
+    this.mapping.clear();
   };
 
   db.prototype.key = function(i) {
     i = i || 0;
-    return Object.keys(this)[i];
+    return Array.from(this.mapping.keys())[i];
   };
 
   db.prototype.__defineGetter__("length", function() {
-    return Object.keys(this).length;
+    return Array.from(this.mapping.keys()).length;
+  });
+
+  db.prototype.__defineGetter__("mapping", function() {
+    if (typeof this._mapping !== "undefined") {
+      return this._mapping;
+    }
+    const map = new Map();
+    this._mapping = map;
+    return map;
   });
 
   if (typeof global !== "undefined" && global.localStorage) {
