@@ -57,6 +57,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
+    "json-bigint": "^1.0.0",
     "tslib": "1.14.1"
   }
 }

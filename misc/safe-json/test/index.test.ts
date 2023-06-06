@@ -20,13 +20,16 @@ describe("@exodus/walletconnect-safe-json", () => {
       const result = safeJsonParse(valid);
       chai.expect(result).to.eql(json);
     });
-    it("should return the same input when invalid json", () => {
-      const result = safeJsonParse(invalid);
-      chai.expect(result).to.eql(invalid);
+    it("should throw when invalid json", () => {
+      chai.expect(() => safeJsonParse(invalid)).to.throw('Bad string');
     });
-    it("should handle bigint", () => {
+    it("should handle big bigint", () => {
+      const result = safeJsonParse(safeJsonStringify({ bigint: BigInt('9007199254740999') }));
+      chai.expect(result).to.deep.eq({ bigint: BigInt('9007199254740999') });
+    });
+    it("should handle small bigint", () => {
       const result = safeJsonParse(safeJsonStringify({ bigint: BigInt(1) }));
-      chai.expect(result).to.deep.eq({ bigint: BigInt(1) });
+      chai.expect(result).to.deep.eq({ bigint: 1 });
     });
   });
   describe("safeJsonStringify", () => {
@@ -40,7 +43,7 @@ describe("@exodus/walletconnect-safe-json", () => {
     });
     it("should return input when already a string", () => {
       const result = safeJsonStringify(str);
-      chai.expect(result).to.eql(str);
+      chai.expect(result).to.eql(`"${str}"`);
     });
   });
 });
