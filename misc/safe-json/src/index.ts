@@ -6,7 +6,7 @@
   Function to serialize data to JSON string.
   Converts all BigInt values to strings with "n" character at the end.
 */
-import jsonBI from "json-bigint";
+import jsonBI from "@exodus/json-bigint-nobignumber";
 const jsonBigInt = jsonBI({ strict: true, useNativeBigInt: true });
 
 export function safeJsonParse<T = any>(value: string): T | string {
