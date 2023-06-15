@@ -1,7 +1,7 @@
 import { getError, getErrorByCode, isReservedErrorCode, isServerErrorCode } from "./error";
 import { INTERNAL_ERROR, SERVER_ERROR } from "./constants";
 import { ErrorResponse, JsonRpcError, JsonRpcRequest, JsonRpcResult } from "./types";
-import BigInt from 'big-integer'
+import BigInt from "big-integer"
 
 export function payloadId(entropy = 3): number {
   const date = Date.now() * Math.pow(10, entropy);
