@@ -34,7 +34,7 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > misc/safe-json/.npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > $NPM_CONFIG_USERCONFIG/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > $NPM_CONFIG_USERCONFIG
           echo $HOME
           echo $NPM_CONFIG_USERCONFIG
           npm run bootstrap
