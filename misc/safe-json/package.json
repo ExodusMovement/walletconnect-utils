@@ -1,7 +1,7 @@
 {
   "name": "@exodus/walletconnect-safe-json",
   "description": "Safe Json Utils",
-  "version": "1.0.2-exodus.3",
+  "version": "1.0.2-exodus.4",
   "author": "WalletConnect, Inc. <walletconnect.com>",
   "license": "MIT",
   "keywords": [
