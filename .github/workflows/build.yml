@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          registry-url: 'https://registry.npmjs.org' 
+          # registry-url: 'https://registry.npmjs.org' 
           node-version: 16
 
       - name: Check node_modules cache
@@ -26,20 +26,20 @@ jobs:
 
       - name: Install NPM Dependencies
         run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Bootstrap packages
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > misc/safe-json/.npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > $NPM_CONFIG_USERCONFIG
-          echo $HOME
-          echo $NPM_CONFIG_USERCONFIG
+          # echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          # echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          # echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > misc/safe-json/.npmrc
+          # echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > $NPM_CONFIG_USERCONFIG
+          # echo $HOME
+          # echo $NPM_CONFIG_USERCONFIG
           npm run bootstrap
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Lint
         run: npm run lint
