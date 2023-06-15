@@ -30,7 +30,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Bootstrap packages
-        run: npm run bootstrap
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > misc/safe-json/.npmrc
+          npm run bootstrap
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
