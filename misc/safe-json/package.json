@@ -57,7 +57,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "@exodus/json-bigint-nobignumber": "^1.0.0-exodus.0",
+    "@exodus/json-bigint": "^1.0.0-exodus.1",
     "tslib": "1.14.1"
   }
 }
