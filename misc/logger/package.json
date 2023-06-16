@@ -1,7 +1,7 @@
 {
   "name": "@exodus/walletconnect-logger",
   "description": "Logger Utils",
-  "version": "2.0.1-exodus.1",
+  "version": "2.0.1-exodus.2",
   "author": "WalletConnect, Inc. <walletconnect.com>",
   "license": "MIT",
   "homepage": "https://github.com/WalletConnect/walletconnect-utils/",
