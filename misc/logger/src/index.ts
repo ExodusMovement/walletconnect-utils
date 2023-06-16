@@ -4,6 +4,6 @@ export * from "./constants";
 export * from "./utils";
 export type { Logger } from "./utils";
 
-export function pino(LoggerOptions): Logger {
-  return console;
+export function pino(LoggerOptions): void {
+  throw new Error("Exodus not implemented");
 }
