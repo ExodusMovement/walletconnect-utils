@@ -20,5 +20,5 @@ export function generateChildLogger(
   childContext: string,
   customContextKey: string = PINO_CUSTOM_CONTEXT_KEY
 ): Logger {
-  return console;
+  return logger;
 }
