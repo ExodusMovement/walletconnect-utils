@@ -4,6 +4,7 @@ import { Crypto } from "@peculiar/webcrypto";
 
 import * as browserCrypto from "../src/browser";
 
+delete globalThis.crypto
 global.crypto = new Crypto();
 
 describe("Browser", () => {

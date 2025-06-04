@@ -4,6 +4,7 @@ import { Crypto } from "@peculiar/webcrypto";
 
 import * as nodeCrypto from "../src/node";
 
+delete globalThis.crypto
 global.crypto = new Crypto();
 
 describe("NodeJS", () => {
