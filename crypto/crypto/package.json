@@ -16,10 +16,10 @@
     "dist",
     "sync"
   ],
-  "main": "dist/esm/node/index.js",
-  "react-native": "dist/esm/node/index.js",
-  "browser": "dist/esm/browser/index.js",
-  "types": "./dist/esm/node/index.d.ts",
+  "main": "dist/esm/fallback/index.js",
+  "react-native": "dist/esm/fallback/index.js",
+  "browser": "dist/esm/fallback/index.js",
+  "types": "./dist/esm/fallback/index.d.ts",
   "type": "module",
   "homepage": "https://github.com/walletconnect/walletconnect-utils",
   "repository": {
@@ -39,11 +39,7 @@
     "lint": "eslint -c '../../.eslintrc' --fix './src/**/*.ts'"
   },
   "dependencies": {
-    "@exodus/walletconnect-encoding": "^1.0.0-exodus.0",
-    "@exodus/walletconnect-environment": "^1.0.0-exodus.0",
-    "@exodus/walletconnect-randombytes": "^1.0.1-exodus.0",
-    "aes-js": "^3.1.2",
-    "hash.js": "^1.1.7"
+    "@exodus/crypto": "^1.0.0-rc.20"
   },
   "devDependencies": {
     "@peculiar/webcrypto": "^1.1.7",

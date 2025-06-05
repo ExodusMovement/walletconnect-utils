@@ -1,12 +1,12 @@
-import { fallbackAesEncrypt, fallbackAesDecrypt } from "../lib/fallback.js";
+// @ts-ignore
+import { encryptCBC, decryptCBC } from '@exodus/crypto/aes';
 
 export async function aesCbcEncrypt(
   iv: Uint8Array,
   key: Uint8Array,
   data: Uint8Array
 ): Promise<Uint8Array> {
-  const result = fallbackAesEncrypt(iv, key, data);
-  return result;
+  return encryptCBC({ key, nonce: iv, data });
 }
 
 export async function aesCbcDecrypt(
@@ -14,6 +14,5 @@ export async function aesCbcDecrypt(
   key: Uint8Array,
   data: Uint8Array
 ): Promise<Uint8Array> {
-  const result = fallbackAesDecrypt(iv, key, data);
-  return result;
+  return decryptCBC({ key, nonce: iv, data });
 }

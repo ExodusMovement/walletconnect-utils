@@ -1,21 +1,13 @@
-import {
-  fallbackSha256,
-  fallbackSha512,
-  fallbackRipemd160,
-} from "../lib/fallback.js";
+import { hash } from '@exodus/crypto/hash'
 
 export async function sha256(msg: Uint8Array): Promise<Uint8Array> {
-  const result = fallbackSha256(msg);
-  return result;
+  return hash('sha256', msg, 'uint8')
 }
 
 export async function sha512(msg: Uint8Array): Promise<Uint8Array> {
-  const result = fallbackSha512(msg);
-  return result;
+  return hash('sha512', msg, 'uint8')
 }
 
 export async function ripemd160(msg: Uint8Array): Promise<Uint8Array> {
-  const result = fallbackRipemd160(msg);
-
-  return result;
+  return hash('ripemd160', msg, 'uint8')
 }

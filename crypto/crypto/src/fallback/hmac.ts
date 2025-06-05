@@ -1,16 +1,11 @@
-import { isConstantTime } from "../helpers/index.js";
-
-import {
-  fallbackHmacSha256Sign,
-  fallbackHmacSha512Sign,
-} from "../lib/fallback.js";
+import { hmac } from '@exodus/crypto/hmac'
+import { isConstantTime } from "../helpers/validators.js";
 
 export async function hmacSha256Sign(
   key: Uint8Array,
   msg: Uint8Array
 ): Promise<Uint8Array> {
-  const result = fallbackHmacSha256Sign(key, msg);
-  return result;
+  return hmac('sha256', key, msg, 'uint8');
 }
 
 export async function hmacSha256Verify(
@@ -18,7 +13,7 @@ export async function hmacSha256Verify(
   msg: Uint8Array,
   sig: Uint8Array
 ): Promise<boolean> {
-  const expectedSig = fallbackHmacSha256Sign(key, msg);
+  const expectedSig = await hmacSha256Sign(key, msg);
   const result = isConstantTime(expectedSig, sig);
   return result;
 }
@@ -27,8 +22,7 @@ export async function hmacSha512Sign(
   key: Uint8Array,
   msg: Uint8Array
 ): Promise<Uint8Array> {
-  const result = fallbackHmacSha512Sign(key, msg);
-  return result;
+  return hmac('sha512', key, msg, 'uint8');
 }
 
 export async function hmacSha512Verify(
@@ -36,7 +30,7 @@ export async function hmacSha512Verify(
   msg: Uint8Array,
   sig: Uint8Array
 ): Promise<boolean> {
-  const expectedSig = fallbackHmacSha512Sign(key, msg);
+  const expectedSig = await hmacSha512Sign(key, msg);
   const result = isConstantTime(expectedSig, sig);
   return result;
 }

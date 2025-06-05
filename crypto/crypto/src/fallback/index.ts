@@ -1,4 +1,4 @@
-export * from "@exodus/walletconnect-randombytes";
+export { randomBytes } from "@exodus/crypto/randomBytes";
 
 export * from "./aes.js";
 export * from "./hmac.js";
