@@ -39,7 +39,8 @@
     "lint": "eslint -c '../../.eslintrc' --fix './src/**/*.ts'"
   },
   "dependencies": {
-    "@exodus/crypto": "^1.0.0-rc.20"
+    "@exodus/crypto": "^1.0.0-rc.20",
+    "@exodus/walletconnect-environment": "^1.0.0-exodus.0"
   },
   "devDependencies": {
     "@peculiar/webcrypto": "^1.1.7",
